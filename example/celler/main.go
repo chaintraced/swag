@@ -4,10 +4,10 @@ import (
 	"errors"
 	"net/http"
 
+	"github.com/chaintraced/swag/example/celler/controller"
+	_ "github.com/chaintraced/swag/example/celler/docs"
+	"github.com/chaintraced/swag/example/celler/httputil"
 	"github.com/gin-gonic/gin"
-	"github.com/swaggo/swag/example/celler/controller"
-	_ "github.com/swaggo/swag/example/celler/docs"
-	"github.com/swaggo/swag/example/celler/httputil"
 
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"

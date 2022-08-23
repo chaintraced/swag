@@ -1,4 +1,4 @@
-module github.com/swaggo/swag
+module github.com/chaintraced/swag
 
 go 1.18
 

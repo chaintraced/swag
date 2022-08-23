@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/chaintraced/swag/example/celler/httputil"
+	"github.com/chaintraced/swag/example/celler/model"
 	"github.com/gin-gonic/gin"
-	"github.com/swaggo/swag/example/celler/httputil"
-	"github.com/swaggo/swag/example/celler/model"
 )
 
 // ShowAccount godoc

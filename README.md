@@ -4,14 +4,14 @@
 
 <img align="right" width="180px" src="https://raw.githubusercontent.com/swaggo/swag/master/assets/swaggo.png">
 
-[![Build Status](https://github.com/swaggo/swag/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/features/actions)
+[![Build Status](https://github.com/chaintraced/swag/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/features/actions)
 [![Coverage Status](https://img.shields.io/codecov/c/github/swaggo/swag/master.svg)](https://codecov.io/gh/swaggo/swag)
-[![Go Report Card](https://goreportcard.com/badge/github.com/swaggo/swag)](https://goreportcard.com/report/github.com/swaggo/swag)
+[![Go Report Card](https://goreportcard.com/badge/github.com/chaintraced/swag)](https://goreportcard.com/report/github.com/chaintraced/swag)
 [![codebeat badge](https://codebeat.co/badges/71e2f5e5-9e6b-405d-baf9-7cc8b5037330)](https://codebeat.co/projects/github-com-swaggo-swag-master)
-[![Go Doc](https://godoc.org/github.com/swaggo/swagg?status.svg)](https://godoc.org/github.com/swaggo/swag)
+[![Go Doc](https://godoc.org/github.com/chaintraced/swagg?status.svg)](https://godoc.org/github.com/chaintraced/swag)
 [![Backers on Open Collective](https://opencollective.com/swag/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/swag/sponsors/badge.svg)](#sponsors) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fswaggo%2Fswag.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fswaggo%2Fswag?ref=badge_shield)
-[![Release](https://img.shields.io/github/release/swaggo/swag.svg?style=flat-square)](https://github.com/swaggo/swag/releases)
+[![Release](https://img.shields.io/github/release/swaggo/swag.svg?style=flat-square)](https://github.com/chaintraced/swag/releases)
 
 
 Swag converts Go annotations to Swagger Documentation 2.0. We've created a variety of plugins for popular [Go web frameworks](#supported-web-frameworks). This allows you to quickly integrate with an existing Go project (using Swagger UI).
@@ -52,14 +52,14 @@ Swag converts Go annotations to Swagger Documentation 2.0. We've created a varie
 
 2. Download swag by using:
 ```sh
-$ go get -u github.com/swaggo/swag/cmd/swag
+$ go get -u github.com/chaintraced/swag/cmd/swag
 
 # 1.16 or newer
-$ go install github.com/swaggo/swag/cmd/swag@latest
+$ go install github.com/chaintraced/swag/cmd/swag@latest
 ```
 To build from source you need [Go](https://golang.org/dl/) (1.15 or newer).
 
-Or download a pre-compiled binary from the [release page](https://github.com/swaggo/swag/releases).
+Or download a pre-compiled binary from the [release page](https://github.com/chaintraced/swag/releases).
 
 3. Run `swag init` in the project's root folder which contains the `main.go` file. This will parse your comments and generate the required files (`docs` folder and `docs/docs.go`).
 ```sh
@@ -137,7 +137,7 @@ OPTIONS:
 
 ## How to use it with Gin
 
-Find the example source code [here](https://github.com/swaggo/swag/tree/master/example/celler).
+Find the example source code [here](https://github.com/chaintraced/swag/tree/master/example/celler).
 
 1. After using `swag init` to generate Swagger 2.0 docs, import the following packages:
 ```go
@@ -237,8 +237,8 @@ import (
     "strconv"
 
     "github.com/gin-gonic/gin"
-    "github.com/swaggo/swag/example/celler/httputil"
-    "github.com/swaggo/swag/example/celler/model"
+    "github.com/chaintraced/swag/example/celler/httputil"
+    "github.com/chaintraced/swag/example/celler/model"
 )
 
 // ShowAccount godoc
@@ -303,7 +303,7 @@ $ swag init
 ## The swag formatter
 
 The Swag Comments can be automatically formatted, just like 'go fmt'.
-Find the result of formatting [here](https://github.com/swaggo/swag/tree/master/example/celler).
+Find the result of formatting [here](https://github.com/chaintraced/swag/tree/master/example/celler).
 
 Usage:
 ```shell
@@ -340,7 +340,7 @@ swag fmt -d ./ --exclude ./internal
 ## General API Info
 
 **Example**
-[celler/main.go](https://github.com/swaggo/swag/blob/master/example/celler/main.go)
+[celler/main.go](https://github.com/chaintraced/swag/blob/master/example/celler/main.go)
 
 | annotation  | description                                | example                         |
 |-------------|--------------------------------------------|---------------------------------|
@@ -381,7 +381,7 @@ When a short string in your documentation is insufficient, or you need images, c
 ## API Operation
 
 **Example**
-[celler/controller](https://github.com/swaggo/swag/tree/master/example/celler/controller)
+[celler/controller](https://github.com/chaintraced/swag/tree/master/example/celler/controller)
 
 
 | annotation  | description                                                                                                                |
@@ -544,20 +544,20 @@ type Account struct {
 
 ### Function scoped struct declaration
 
-You can declare your request response structs inside a function body. 
+You can declare your request response structs inside a function body.
 You must have to follow the naming convention `<package-name>.<function-name>.<struct-name> `.
 
 ```go
 package main
 
-// @Param request body main.MyHandler.request true "query params" 
+// @Param request body main.MyHandler.request true "query params"
 // @Success 200 {object} main.MyHandler.response
 // @Router /test [post]
 func MyHandler() {
 	type request struct {
 		RequestField string
 	}
-	
+
 	type response struct {
 		ResponseField string
 	}
@@ -663,7 +663,7 @@ type Account struct {
 }
 ```
 
-[#708](https://github.com/swaggo/swag/issues/708) The parser handles only struct comments starting with `@Description` attribute.
+[#708](https://github.com/chaintraced/swag/issues/708) The parser handles only struct comments starting with `@Description` attribute.
 But it writes all struct field comments as is.
 
 So, generated swagger doc as follows:
@@ -685,7 +685,7 @@ So, generated swagger doc as follows:
 ```
 
 ### Use swaggertype tag to supported custom type
-[#201](https://github.com/swaggo/swag/issues/201#issuecomment-475479409)
+[#201](https://github.com/chaintraced/swag/issues/201#issuecomment-475479409)
 
 ```go
 type TimestampTime struct {
@@ -721,7 +721,7 @@ type Account struct {
 }
 ```
 
-[#379](https://github.com/swaggo/swag/issues/379)
+[#379](https://github.com/chaintraced/swag/issues/379)
 ```go
 type CerticateKeyPair struct {
 	Crt []byte `json:"crt" swaggertype:"string" format:"base64" example:"U3dhZ2dlciByb2Nrcw=="`
@@ -883,7 +883,7 @@ This project was inspired by [yvasiyarov/swagger](https://github.com/yvasiyarov/
 ## Contributors
 
 This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
-<a href="https://github.com/swaggo/swag/graphs/contributors"><img src="https://opencollective.com/swag/contributors.svg?width=890&button=false" /></a>
+<a href="https://github.com/chaintraced/swag/graphs/contributors"><img src="https://opencollective.com/swag/contributors.svg?width=890&button=false" /></a>
 
 
 ## Backers
